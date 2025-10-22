@@ -1,0 +1,44 @@
+name: Publish to JSR
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  publish:
+    name: Publish to JSR
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      id-token: write # Required for OIDC authentication with JSR
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Cache Deno dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/deno
+            ~/.deno
+          key: ${{ runner.os }}-deno-${{ hashFiles('**/deno.json', '**/deno.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-deno-
+
+      - name: Run checks before publishing
+        run: |
+          deno fmt --check
+          deno lint
+          deno check mod.ts mod_test.ts
+          deno test
+
+      - name: Publish to JSR
+        run: deno publish

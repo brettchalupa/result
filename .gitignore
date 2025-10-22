@@ -1,0 +1,15 @@
+# Deno
+deno.lock
+coverage/
+*.lcov
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~

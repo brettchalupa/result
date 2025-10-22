@@ -1,0 +1,13 @@
+{
+  "name": "@brettchalupa/result",
+  "version": "0.1.0",
+  "exports": "./mod.ts",
+  "tasks": {
+    "dev": "deno test --watch",
+    "ok": "deno fmt --check && deno lint && deno check mod.ts mod_test.ts && deno test"
+  },
+  "license": "Unlicense",
+  "imports": {
+    "@std/assert": "jsr:@std/assert@1"
+  }
+}
