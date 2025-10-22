@@ -3,6 +3,38 @@
 A TypeScript library implementing the Result pattern for type-safe error
 handling, inspired by Rust's `Result<T, E>`.
 
+View the package on JSR: https://jsr.io/@brettchalupa/result
+
+## Why?
+
+Traditional `try/catch` error handling in TypeScript is painful:
+
+- ❌ **Invisible control flow** - Can't tell which functions throw by looking at
+  signatures
+- ❌ **No type safety** - Caught errors are `unknown`, TypeScript can't help you
+- ❌ **Difficult to test** - Easy to miss error paths and leave them untested
+- ❌ **Unclear propagation** - Hard to tell where errors originate when they
+  bubble up
+
+**Result makes errors explicit:**
+
+```typescript
+// ❌ Exception-based: Which functions throw? What error types?
+function processUser(id: string): User {
+  const user = findUser(id); // Throws? Maybe?
+  return validateUser(user); // Throws? Who knows?
+}
+
+// ✅ Result-based: Clear from the signature what can fail
+function processUser(id: string): Result<User, "NOT_FOUND" | "INVALID"> {
+  const user = findUser(id); // Returns Result<User, "NOT_FOUND">
+  return user.andThen(validateUser); // Type-safe chaining!
+}
+```
+
+With Result, **errors are just values** - visible in the type system, easy to
+handle, and impossible to ignore accidentally.
+
 ## Features
 
 - **Type-safe error handling** - Errors are part of the function signature

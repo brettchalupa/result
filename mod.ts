@@ -7,11 +7,61 @@
  * and functional programming patterns. This eliminates the need for throwing exceptions for
  * expected error conditions and makes error handling explicit.
  *
+ * ## Why Use Result Instead of Exceptions?
+ *
+ * Traditional try/catch error handling in TypeScript has several problems:
+ *
+ * **1. Invisible Control Flow**
+ * ```typescript
+ * // Which functions throw? You can't tell without reading the source code!
+ * function processUser(id: string) {
+ *   const user = findUser(id);        // Throws? Maybe?
+ *   const validated = validate(user); // Throws? Who knows?
+ *   return save(validated);           // Throws? Probably?
+ * }
+ * ```
+ *
+ * **2. No Type Safety**
+ * ```typescript
+ * try {
+ *   const data = JSON.parse(input);
+ * } catch (error) {
+ *   // error is type 'unknown' - could be anything!
+ *   // Was it a SyntaxError? A custom error? undefined? A string?
+ *   console.error(error.message); // TypeScript can't help you here
+ * }
+ * ```
+ *
+ * **3. Difficult to Test**
+ * ```typescript
+ * // How do you test all error paths? You have to know which functions throw.
+ * // Easy to miss edge cases and leave error paths untested.
+ * ```
+ *
+ * **4. Unclear Error Propagation**
+ * ```typescript
+ * function outer() {
+ *   try {
+ *     middle();
+ *   } catch (e) {
+ *     // Did middle() throw? Or did inner() throw and middle didn't catch it?
+ *     // You can't tell without reading all the code.
+ *   }
+ * }
+ * function middle() { inner(); }
+ * function inner() { throw new Error("boom"); }
+ * ```
+ *
+ * ## How Result Solves These Problems
+ *
  * The Result pattern provides type-safe error handling by making errors part of the function's
- * return type rather than relying on exceptions. This approach offers several benefits:
- * - **Explicit error handling**: Errors must be handled or explicitly ignored
+ * return type rather than relying on exceptions:
+ *
+ * - **Explicit error handling**: Function signatures tell you exactly what can fail and how
  * - **Type safety**: Both success and error types are checked at compile time
+ * - **Clear control flow**: No invisible throws - errors are just values to handle
  * - **Composability**: Results can be easily chained and transformed
+ * - **Testability**: All code paths are visible and easy to test
  * - **Performance**: No exception overhead for expected error conditions
  *
  * @example Basic usage
