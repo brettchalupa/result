@@ -1,11 +1,9 @@
 /**
- * @brettchalupa/result
- *
- * @module
- *
  * A generic Result type that represents either success or failure, inspired by Rust's Result<T, E>
  * and functional programming patterns. This eliminates the need for throwing exceptions for
  * expected error conditions and makes error handling explicit.
+ *
+ * @module
  *
  * ## Why Use Result Instead of Exceptions?
  *
