@@ -7,14 +7,15 @@ View the package on JSR: https://jsr.io/@brettchalupa/result
 
 ## Why?
 
-Traditional `try/catch` error handling in TypeScript is painful:
+Traditional `try/catch` error handling in TypeScript (and JavaScript) is
+painful:
 
-- ❌ **Invisible control flow** - Can't tell which functions throw by looking at
+- **Invisible control flow** - Can't tell which functions throw by looking at
   signatures
-- ❌ **No type safety** - Caught errors are `unknown`, TypeScript can't help you
-- ❌ **Difficult to test** - Easy to miss error paths and leave them untested
-- ❌ **Unclear propagation** - Hard to tell where errors originate when they
-  bubble up
+- **No type safety** - Caught errors are `unknown`, TypeScript can't help you
+- **Difficult to test** - Easy to miss error paths and leave them untested
+- **Unclear propagation** - Hard to tell where errors originate when they bubble
+  up
 
 **Result makes errors explicit:**
 
@@ -32,8 +33,8 @@ function processUser(id: string): Result<User, "NOT_FOUND" | "INVALID"> {
 }
 ```
 
-With Result, **errors are just values** - visible in the type system, easy to
-handle, and impossible to ignore accidentally.
+With `Result`, **errors are just values** that are visible in the type system,
+easy to handle, and impossible to ignore accidentally.
 
 ## Features
 
