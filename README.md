@@ -38,11 +38,10 @@ easy to handle, and impossible to ignore accidentally.
 
 ## Features
 
-- **Type-safe error handling** - Errors are part of the function signature
-- **Method chaining** - Fluent API for transforming and combining results
-- **Zero dependencies** - Lightweight and fast
-- **Full TypeScript support** - Complete type inference and safety
-- **Well tested** - Comprehensive test suite with 50+ tests
+- **Type-safe error handling**
+- **Method chaining**
+- **Full TypeScript support**
+- **Zero dependencies**
 
 ## Installation
 
