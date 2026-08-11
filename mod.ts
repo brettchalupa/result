@@ -64,7 +64,7 @@
  *
  * @example Basic usage
  * ```typescript
- * import { ok, err, type Result } from "@scope/result";
+ * import { ok, err, type Result } from "@brettchalupa/result";
  *
  * function divide(a: number, b: number): Result<number, string> {
  *   if (b === 0) {
@@ -83,7 +83,7 @@
  *
  * @example Async operations
  * ```typescript
- * import { ok, err, type Result } from "@scope/result";
+ * import { ok, err, type Result } from "@brettchalupa/result";
  *
  * async function findUser(id: string): Promise<Result<User, DatabaseError>> {
  *   try {
@@ -100,7 +100,7 @@
  *
  * @example Chaining operations
  * ```typescript
- * import { ok, err } from "@scope/result";
+ * import { ok, err } from "@brettchalupa/result";
  *
  * // Method chaining on Result instances
  * const result = ok({ name: "Alice", age: 30 })
@@ -110,7 +110,7 @@
  *
  * @example Using utility functions
  * ```typescript
- * import { Result } from "@scope/result";
+ * import { Result } from "@brettchalupa/result";
  *
  * // Safely parse JSON
  * const parsed = Result.try(() => JSON.parse('{"valid": "json"}'));
