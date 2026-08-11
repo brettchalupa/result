@@ -7,7 +7,7 @@
     "ok": "deno fmt --check && deno lint && deno check mod.ts mod_test.ts && deno test",
     "publish": "deno task publish:jsr && deno task publish:npm",
     "publish:jsr": "deno publish",
-    "publish:npm": "rm -f brettchalupa-result-*.tgz && deno pack && npm publish --access public brettchlaupa-result*.tgz"
+    "publish:npm": "rm -f brettchalupa-result-*.tgz && deno pack && npm publish --access public brettchalupa-result*.tgz"
   },
   "license": "Unlicense",
   "imports": {
