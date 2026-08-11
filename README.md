@@ -238,4 +238,5 @@ This is free and unencumbered software released into the public domain. See
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit issues or pull requests.
+Contributions are welcome! Please feel free to submit issues or pull requests
+[via Codeberg](https://codeberg.org/brettchalupa/result).
