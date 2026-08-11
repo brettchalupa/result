@@ -4,8 +4,8 @@
   "exports": "./mod.ts",
   "tasks": {
     "dev": "deno test --watch",
-    "ok": "deno fmt --check && deno lint && deno check mod.ts mod_test.ts && deno test"
-    "publish": "deno task publish:jsr && deno task publish:npm"
+    "ok": "deno fmt --check && deno lint && deno check mod.ts mod_test.ts && deno test",
+    "publish": "deno task publish:jsr && deno task publish:npm",
     "publish:jsr": "deno publish",
     "publish:npm": "rm -f brettchalupa-result-*.tgz && deno pack && npm publish --access public brettchlaupa-result*.tgz"
   },

@@ -3,7 +3,10 @@
 A TypeScript library implementing the Result pattern for type-safe error
 handling, inspired by Rust's `Result<T, E>`.
 
-View the package on JSR: https://jsr.io/@brettchalupa/result
+View the package on different registries:
+
+- jsr: https://jsr.io/@brettchalupa/result
+- npm: https://www.npmjs.com/package/@brettchalupa/result
 
 ## Why?
 
@@ -20,13 +23,13 @@ painful:
 **Result makes errors explicit:**
 
 ```typescript
-// ❌ Exception-based: Which functions throw? What error types?
+// The problem: Which functions throw? What error types?
 function processUser(id: string): User {
   const user = findUser(id); // Throws? Maybe?
   return validateUser(user); // Throws? Who knows?
 }
 
-// ✅ Result-based: Clear from the signature what can fail
+// Using Result: Clear from the signature what can fail
 function processUser(id: string): Result<User, "NOT_FOUND" | "INVALID"> {
   const user = findUser(id); // Returns Result<User, "NOT_FOUND">
   return user.andThen(validateUser); // Type-safe chaining!
@@ -55,8 +58,8 @@ pnpm add jsr:@brettchalupa/result
 # yarn 4.9+
 yarn add jsr:@brettchalupa/result
 
-# npm, bun, and older versions of yarn or pnpm
-npx jsr add @brettchalupa/result # replace npx with any of yarn dlx, pnpm dlx, or bunx
+# npm
+npm i -S @brettchalupa/result
 ```
 
 Or import directly in Deno without installation:
@@ -219,6 +222,14 @@ deno task ok
 # Watch mode
 deno task dev
 ```
+
+### Release a New Version
+
+1. `deno bump-version [increment]`
+2. Commit the version bump
+3. Create a git tag with `git tag X.Y.Z`
+4. `deno task publish`
+5. Push `main` branch and the new tag
 
 ## License
 
