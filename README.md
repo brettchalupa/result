@@ -8,6 +8,8 @@ View the package on different registries:
 - jsr: https://jsr.io/@brettchalupa/result
 - npm: https://www.npmjs.com/package/@brettchalupa/result
 
+View the source code: https://codeberg.org/brettchalupa/result
+
 ## Why?
 
 Traditional `try/catch` error handling in TypeScript (and JavaScript) is
