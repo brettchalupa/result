@@ -1,6 +1,6 @@
 {
   "name": "@brettchalupa/result",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "exports": "./mod.ts",
   "tasks": {
     "dev": "deno test --watch",
