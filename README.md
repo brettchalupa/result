@@ -64,14 +64,6 @@ yarn add jsr:@brettchalupa/result
 npm i -S @brettchalupa/result
 ```
 
-Or import directly in Deno without installation:
-
-```typescript
-import { err, ok, Result } from "jsr:@brettchalupa/result";
-
-const result = ok(42);
-```
-
 ## Quick Start
 
 ```typescript
