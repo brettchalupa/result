@@ -10,6 +10,8 @@ View the package on different registries:
 
 View the source code: https://codeberg.org/brettchalupa/result
 
+[▶ Watch a screencast on how to use the library.](https://youtu.be/Ks-kkjMkp8o)
+
 ## Why?
 
 Traditional `try/catch` error handling in TypeScript (and JavaScript) is
